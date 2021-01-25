@@ -1,40 +1,3 @@
-# from pysense import Pysense
-# from LIS2HH12 import LIS2HH12
-# import pycom
-# import time
-# import machine
-# import utime
-# import _thread
-
-# py = Pysense()
-
-# pycom.heartbeat(False)
-
-# py.setup_int_pin_wake_up(False)
-# py.setup_int_wake_up(True, False)
-
-# int_counter = 0
-
-# def accel_activity_handler(pin_o):
-#     if pin_o():
-#         # machine.reset()
-#         pycom.rgbled(0x800080)
-#         print('saw the interrupt')
-#         pybytes.send_signal(0, "Movement! " + str(acc.pitch()))
-#         global int_counter
-#         int_counter+=1
-#         print(int_counter)
-#         time.sleep(1)
-#         pycom.rgbled(0)
-
-#     pycom.heartbeat(False)
-
-# ## ACCELEROMETER INTERRUPT
-# acc = LIS2HH12()
-# acc.enable_activity_interrupt(1000, 200, handler=accel_activity_handler)
-# py.setup_sleep(3)
-# py.go_to_sleep()
-
 from pysense import Pysense
 from LIS2HH12 import LIS2HH12
 import pycom
@@ -152,3 +115,41 @@ acc.enable_activity_interrupt(1000, 200, handler=accel_activity_handler)
 
 # for i in range(2):
 #     _thread.start_new_thread(th_func(i + 1, i))
+
+# # TODO --------------------------------------------
+# from pysense import Pysense
+# from LIS2HH12 import LIS2HH12
+# import pycom
+# import time
+# import machine
+# import utime
+# import _thread
+
+# py = Pysense()
+
+# pycom.heartbeat(False)
+
+# py.setup_int_pin_wake_up(False)
+# py.setup_int_wake_up(True, False)
+
+# int_counter = 0
+
+# def accel_activity_handler(pin_o):
+#     if pin_o():
+#         # machine.reset()
+#         pycom.rgbled(0x800080)
+#         print('saw the interrupt')
+#         pybytes.send_signal(0, "Movement! " + str(acc.pitch()))
+#         global int_counter
+#         int_counter+=1
+#         print(int_counter)
+#         time.sleep(1)
+#         pycom.rgbled(0)
+
+#     pycom.heartbeat(False)
+
+# ## ACCELEROMETER INTERRUPT
+# acc = LIS2HH12()
+# acc.enable_activity_interrupt(1000, 200, handler=accel_activity_handler)
+# py.setup_sleep(3)
+# py.go_to_sleep()
