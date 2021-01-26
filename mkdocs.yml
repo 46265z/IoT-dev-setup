@@ -1,0 +1,15 @@
+site_name: Amusement Park Simulation
+nav:
+  - Home: index.md
+#  - About: about.md
+  - Prerequisites: prerequisites.md
+  - "How To":
+    - "Device Setup": HowTo/add-device.md
+    - Balloon: games/balloon.md
+  - Page2: page2.md
+  - Section1:
+    - Subpage1: subpage1.md
+    - Subpage2: subpage2.md
+theme:
+  name: material
+
