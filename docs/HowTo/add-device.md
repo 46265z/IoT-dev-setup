@@ -16,7 +16,7 @@ Suzdavame novo ustroistvo kato po vreme na procesa izbirame mrejata koqto sme su
 
 Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno e versiqta na programata da e poslednata nalichna (snimka 3.1.) 
 
-<img src="/home/alex/Desktop/unibit-iot/IoT-dev-setup/docs/img/pycomflasher.png" alt="pycomflasher" style="zoom: 33%;" />
+<img src="../img/pycomflasher.png" alt="pycomflasher" style="zoom: 33%;" />
 
 [^3.1.]: check for latest version
 
@@ -24,7 +24,7 @@ Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno 
 
 Activation token-a e koda koito kopirahme ot saita sled kato suzdadohme ustroistvoto. (snimka 3.2.)
 
-<img src="/home/alex/Desktop/unibit-iot/IoT-dev-setup/docs/img/pybytes-reg.png" alt="pybytes-reg" style="zoom: 33%;" />
+<img src="../img/pybytes-reg.png" alt="pybytes-reg" style="zoom: 33%;" />
 
 [^3.2.]: device activation/registration
 
