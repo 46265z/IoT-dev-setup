@@ -10,7 +10,7 @@ Zadavame mreja kym koqto da se svyrje platkata pri vkluchvane, nai-chesto mrejat
 
 Suzdavame novo ustroistvo kato po vreme na procesa izbirame mrejata koqto sme suzdali v stupka 1. Kopiraite koda za aktivirane.
 
-<img src="../docs/img/ref-token.png" alt="add-device" style="zoom: 33%;" />
+<img src="../img/ref-token.png" alt="add-device" style="zoom: 33%;" />
 
 3. FLASH DEVICE
 
