@@ -31,7 +31,7 @@ Suzdavame novo ustroistvo kato po vreme na procesa izbirame mrejata koqto sme su
 
 Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno e versiqta na programata da e poslednata nalichna (snimka 3.1.) 
 
-![flasher-version]()<img src="docs/img/pycomflasher.png" alt="pycomflasher" style="zoom:50%;" />
+<img src="docs/img/pycomflasher.png" alt="pycomflasher" style="zoom:50%;" />
 
 [^3.1.]: check for latest version
 
