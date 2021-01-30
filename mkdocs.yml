@@ -1,8 +1,4 @@
 site_name: IoT-dev-setup
-<<<<<<< Updated upstream
-=======
-site_url: https://46265z.github.io/IoT-dev-setup/
->>>>>>> Stashed changes
 nav:
   - Home: index.md
 #  - About: about.md
