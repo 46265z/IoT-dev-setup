@@ -35,5 +35,3 @@ docker
 docker-compose
 
 golang
-
-

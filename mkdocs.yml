@@ -1,15 +1,17 @@
-site_name: Amusement Park Simulation
+site_name: IoT-dev-setup
 nav:
   - Home: index.md
 #  - About: about.md
   - Prerequisites: prerequisites.md
   - "How To":
     - "Device Setup": HowTo/add-device.md
-    - Balloon: games/balloon.md
-  - Page2: page2.md
-  - Section1:
-    - Subpage1: subpage1.md
-    - Subpage2: subpage2.md
+    - "Import Deploy": HowTo/import-code-from-github.md
+      #  - Page2: page2.md
+      #  - Section1:
+      #    - Subpage1: subpage1.md
+      #    - Subpage2: subpage2.md
 theme:
   name: material
-
+# Use extra CSS to customize styles, based on theme
+extra_css:
+  - stylesheets/extra.css

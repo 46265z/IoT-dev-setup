@@ -1,31 +1,35 @@
-# add device
+# Setup device
 
 Za da sledvate stupkite trqbva da imate registraciq v pybytes.
 
-1. ADD WIFI
+
+
+## ADD WIFI
 
 Zadavame mreja kym koqto da se svyrje platkata pri vkluchvane, nai-chesto mrejata kym koqto e svyrzan laptopa vi.
 
-2. ADD DEVICE
+
+
+## ADD DEVICE
 
 Suzdavame novo ustroistvo kato po vreme na procesa izbirame mrejata koqto sme suzdali v stupka 1. Kopiraite koda za aktivirane.
 
-<img src="../img/ref-token.png" alt="add-device" style="zoom: 33%;" />
+<!-- **<p style="text-align: center;"> ![import-from-vcs.png](/img/ref-token.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="/img/ref-token.png">see full-size image</a>) </p>** -->
 
-3. FLASH DEVICE
+
+
+## FLASH DEVICE
 
 Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno e versiqta na programata da e poslednata nalichna (snimka 3.1.) 
 
-<img src="../img/pycomflasher.png" alt="pycomflasher" style="zoom: 33%;" />
-
-[^3.1.]: check for latest version
+**<p style="text-align: center;"> ![import-from-vcs.png](/img/pycomflasher.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="/img/pycomflasher.png">see full-size image</a>) </p>**
 
 **Otmetnete opciqta Force update pybytes registration**
 
+
+
 Activation token-a e koda koito kopirahme ot saita sled kato suzdadohme ustroistvoto. (snimka 3.2.)
 
-<img src="../img/pybytes-reg.png" alt="pybytes-reg" style="zoom: 33%;" />
-
-[^3.2.]: device activation/registration
+**<p style="text-align: center;"> ![import-from-vcs.png](/img/pybytes-reg.png) </p>** **<p style="text-align: center;"> Image 3.2. (<a href="/img/pybytes-reg.png">see full-size image</a>) </p>**
 
 Ako vsichko e nared stoinostta na poleto _last connection_ trqbva da se promeni ot _never connected_ na _few seconds ago
