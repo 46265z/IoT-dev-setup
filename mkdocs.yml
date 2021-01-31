@@ -5,7 +5,6 @@ nav:
   - Home: index.md
 #  - About: about.md
   - Prerequisites: prerequisites.md
-  - How To Test: add-device.md
   - "How To":
     - "Device Setup": HowTo/add-device.md
     - "Import Deploy": HowTo/import-code-from-github.md
