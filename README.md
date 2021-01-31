@@ -8,6 +8,18 @@ nested or separate docs repo?
 
 
 
+TOC
+
+Add device
+
+Deploy  code from github
+
+Integrate webhook
+
+Test the hook
+
+
+
 
 # readme
 

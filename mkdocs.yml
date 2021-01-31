@@ -8,6 +8,8 @@ nav:
   - "How To":
     - "Device Setup": HowTo/add-device.md
     - "Import Deploy": HowTo/import-code-from-github.md
+    - "Integrate webhook": HowTo/integrate-webhook.md
+    - "Test the hook": HowTo/test-pybytes-webhook.md
       #  - Page2: page2.md
       #  - Section1:
       #    - Subpage1: subpage1.md
