@@ -1,6 +1,6 @@
 site_name: IoT-dev-setup
-  #site_url: https://46265z.github.io/IoT-dev-setup/
-site_url: https://github.com/46265z/IoT-dev-setup/tree/gh-pages
+site_url: https://46265z.github.io/IoT-dev-setup/
+
 nav:
   - Home: index.md
 #  - About: about.md
