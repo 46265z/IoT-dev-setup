@@ -6,10 +6,10 @@ nav:
 #  - About: about.md
   - Prerequisites: prerequisites.md
   - "How To":
-    - "Device Setup": how-to/add-device.md
-    - "Import Deploy": how-to/import-code-from-github.md
-    - "Integrate webhook": how-to/integrate-webhook.md
-    - "Test the hook": how-to/test-pybytes-webhook.md
+    - "Device Setup": HowTo/add-device.md
+    - "Import Deploy": HowTo/import-code-from-github.md
+    - "Integrate webhook": HowTo/integrate-webhook.md
+    - "Test the hook": HowTo/test-pybytes-webhook.md
       #  - Page2: page2.md
       #  - Section1:
       #    - Subpage1: subpage1.md
