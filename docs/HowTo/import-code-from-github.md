@@ -16,7 +16,7 @@
 
 Ako iskate da testvate moje da izpolzvate [tozi repozitor](https://github.com/46265z/IoT-dev-setup). Prochetete poveche na stranicata v github.
 
-**<p style="text-align: center;"> ![import-from-vcs.png](/img/import-from-vcs.png) </p>** **<p style="text-align: center;"> Example Image (<a href="/img/import-from-vcs.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![import-from-vcs.png](46265z/img/import-from-vcs.png) </p>** **<p style="text-align: center;"> Example Image (<a href="46265z/img/import-from-vcs.png">see full-size image</a>) </p>**
 
 
 
