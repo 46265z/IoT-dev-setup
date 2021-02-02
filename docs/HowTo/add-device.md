@@ -22,7 +22,7 @@ Suzdavame novo ustroistvo kato po vreme na procesa izbirame mrejata koqto sme su
 
 Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno e versiqta na programata da e poslednata nalichna (snimka 3.1.) 
 
-**<p style="text-align: center;"> ![pycomflasher.png](/img/pycomflasher.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="/img/pycomflasher.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![pycomflasher.png](img/pycomflasher.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="img/pycomflasher.png">see full-size image</a>) </p>**
 
 **Otmetnete opciqta Force update pybytes registration**
 
