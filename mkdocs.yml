@@ -114,7 +114,8 @@ markdown_extensions:
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
-  - pymdownx.critic
+  - pymdownx.critic:
+      mode: view
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -127,6 +128,8 @@ markdown_extensions:
       user: squidfunk
       repo: mkdocs-material
   - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.tilde
   - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:
@@ -136,8 +139,6 @@ markdown_extensions:
   - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
-
 
   # Page tree
 nav:
