@@ -145,7 +145,7 @@ nav:
   - Home: index.md
   - Prerequisites: prerequisites.md
   - How To:
-    - Setup device: setup-device.md
+    #    - Setup device: setup-device.md
     - Connect device: connect-device.md
     - Setup Pybytes project: setup-pybytes-project.md
     - Import: import-code-from-github.md
