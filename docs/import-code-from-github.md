@@ -2,10 +2,9 @@
 
 ## Suzdavame nov proekt v saita na pybytes.
 
-**Konfiguraciqta na mreja e individualna za proekt! (!= ot config. za ustroistvo)**
 
-<small>Toest vupreki che ustroistvo X e nastroeno s dadena mreja (naprimer wifi s ime HomeWIFI), ako go dobavim kym proekt nastroen s druga mreja i deploy-nem release-a, ustroistvoto shte izpolzva konfiguraciqta na proekta.</small>
-
+!!! type danger "**Konfiguraciqta na mreja e individualna za proekt! (!= ot config. za ustroistvo)**"
+    Toest vupreki che ustroistvo X e nastroeno s dadena mreja (naprimer wifi s ime HomeWIFI), ako go dobavim kym proekt nastroen s druga mreja i deploy-nem release-a, ustroistvoto shte izpolzva konfiguraciqta na proekta.
 
 
 ## Dobavete ustroistvo<sub>/a</sub> kym proekta
