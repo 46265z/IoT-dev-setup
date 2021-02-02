@@ -4,7 +4,7 @@ flespi account
 
 PyBytes account
 
-pybytes firmware flasher
+Pycom Firmware Updater tool https://software.pycom.io/downloads/linux-1.16.5.html
 
 nodeJS
 
