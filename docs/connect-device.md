@@ -1,6 +1,8 @@
 # Setup device
 
-Za da sledvate stupkite trqbva da imate registraciq v pybytes.
+* Za da sledvate stupkite trqbva da imate registraciq v pybytes.
+
+* Instaliran Firmware Updater tool
 
 
 
@@ -24,14 +26,22 @@ Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno 
 
 **<p style="text-align: center;"> ![pycomflasher.png](assets/images/pycomflasher.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
 
+------
+
+
+
+<!--Text can be {--deleted--} and replacement text {++added++}. This can also be combined into {~~one~>a single~~} operation. {==Highlighting==} is also possible {>>and comments can be added inline<<}. {== Formatting can also be applied to blocks, by putting the opening and closing tags on separate lines and adding new lines between the tags and the content. ==}-->
+
 
 
 !!! type danger "**Otmetnete opciqta Force update pybytes registration**"
 
+!!! type danger "**Zatvorete vsichki proggrami koito polzvat COM porta**"
 
+------
 
 Activation token-a e koda koito kopirahme ot saita sled kato suzdadohme ustroistvoto. (snimka 3.2.)
 
 **<p style="text-align: center;"> ![import-from-vcs.png](/assets/images/pybytes-reg.png) </p>** **<p style="text-align: center;"> Image 3.2. (<a href="../assets/images/pybytes-reg.png">see full-size image</a>) </p>**
 
-Ako vsichko e nared stoinostta na poleto _last connection_ trqbva da se promeni ot _never connected_ na _few seconds ago
+Ako vsichko e nared stoinostta na poleto _last connection_ trqbva da se promeni ot _never connected_ na _few seconds ago_
