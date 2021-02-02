@@ -1,3 +1,9 @@
+!!! type "optional explicit title within double quotes"
+    Any number of other indented markdown elements.
+
+    This is the second paragraph.
+
+
 Infrastructure layer1 overview
 <pre style="font-size: 11px;overflow-x:auto;margin:0;padding:0;">
 +----------+----+PyBytes+-+
