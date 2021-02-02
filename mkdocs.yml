@@ -144,8 +144,10 @@ nav:
   - Home: index.md
   - Prerequisites: prerequisites.md
   - How To:
-    - Setup(Connect) Device: add-device.md
-    - Import (\n) Deploy: import-code-from-github.md
+    - Setup Device: setup-device.md
+    - Connect Device: connect-device.md
+    - Import: import-code-from-github.md
+    - Deploy: deploy-to-edge-device.md
     - Integrate webhook: integrate-webhook.md
     - Test the hook(Mock webhook service/backend/endpoint): test-pybytes-webhook.md
   # - Getting started:

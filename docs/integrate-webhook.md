@@ -6,3 +6,5 @@ Integrations > Create new ... > Webhook
 
 ## Primer
 
+Razdelqme formata na sekcii koito shte razgledame individualno.
+
