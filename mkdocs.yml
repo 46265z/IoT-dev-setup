@@ -145,8 +145,9 @@ nav:
   - Home: index.md
   - Prerequisites: prerequisites.md
   - How To:
-    - Setup Device: setup-device.md
-    - Connect Device: connect-device.md
+    - Setup device: setup-device.md
+    - Connect device: connect-device.md
+    - Setup Pybytes project: setup-pybytes-project.md
     - Import: import-code-from-github.md
     - Deploy: deploy-to-edge-device.md
     - Integrate webhook: integrate-webhook.md
