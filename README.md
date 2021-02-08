@@ -1,22 +1,22 @@
-git submodules OR branches ?
+<!--git submodules OR branches ?-->
 
-mkdocs, jekyll, hugo !?
+<!--mkdocs, jekyll, hugo !?-->
 
-wiki, gh pages ?
+<!--wiki, gh pages ?-->
 
-nested or separate docs repo?
+<!--nested or separate docs repo?-->
 
 
 
-TOC
+<!--TOC-->
 
-Add device
+<!--Add device-->
 
-Deploy  code from github
+<!--Deploy  code from github-->
 
-Integrate webhook
+<!--Integrate webhook-->
 
-Test the hook
+<!--Test the hook-->
 
 
 
