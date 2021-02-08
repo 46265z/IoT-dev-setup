@@ -81,8 +81,8 @@ extra:
     #   link: https://hub.docker.com/r/squidfunk/mkdocs-material/
     # - icon: fontawesome/brands/twitter
     #   link: https://twitter.com/squidfunk
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/a-parvanov/
+    # - icon: fontawesome/brands/linkedin
+      # link: https://www.linkedin.com/in/a-parvanov/
     # - icon: fontawesome/brands/instagram
     #   link: https://instagram.com/squidfunk
 
@@ -125,8 +125,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: 46265z
+      repo: IoT-dev-setup
   - pymdownx.mark
   - pymdownx.caret
   - pymdownx.tilde
@@ -152,6 +152,15 @@ nav:
     - Deploy: deploy-to-edge-device.md
     - Integrate webhook: integrate-webhook.md
     - Test the hook(Mock webhook service/backend/endpoint): test-pybytes-webhook.md
+  - Devices:
+    - Expansion board: devices/expansion-board.md
+    - Pyscan: devices/pyscan.md
+    - Pysense2x: devices/pysense2x.md
+    - Pytrack2x: devices/pytrack2x.md
+    - Higrow wroom32: devices/higrow-wroom32.md
+    - Smart Watering: devices/smart-watering.md
+    - Wemos Lolin: devices/wemos-lolin.md
+    - Sodaq Sara: devices/sodaq-sara-aff.md
   # - Getting started:
   #   - Installation: getting-started.md
   #   - Creating your site: creating-your-site.md
