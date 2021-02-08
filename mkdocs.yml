@@ -14,11 +14,11 @@ repo_url: https://github.com/46265z/IoT-dev-setup
 # copyright: Copyright &copy; 2021 - 2021 46265z
 
   # Configuration
-extra_css:
-  - stylesheets/extra.css
+# extra_css:
+#   - stylesheets/extra.css
 
-extra_javascript:
-  - javascripts/extra.js
+# extra_javascript:
+#   - javascripts/extra.js
 
 theme:
   name: material
