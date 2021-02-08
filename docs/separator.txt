@@ -1,12 +1,3 @@
-# test pybytes webhook
-
-
-
-V menu integrations > webhook zadavame endpoint-a na koito iskame da poluchavame dannite.
-
-[webhook.site](https://webhook.site/)
-
-```json
 separator
 [
 {
@@ -51,6 +42,3 @@ separator
 },
 {"time":"2021-01-17T21:04:06.539856559+02:00","id":"","remote_ip":"52.57.131.66","host":"77.85.180.241:3333","method":"POST","uri":"/pytest","user_agent":"","status":200,"error":"","latency":292500,"latency_human":"292.5µs","bytes_in":170,"bytes_out":192}
 ]
-
-```
-
