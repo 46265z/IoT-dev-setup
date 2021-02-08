@@ -50,8 +50,8 @@ Vkluchvame ustroistvoto kym PC i startirame _PyCom Firmware Update Tool_, vajno 
 
 Activation token-a e koda koito kopirahme ot saita sled kato suzdadohme ustroistvoto. (snimka 3.2.)
 
-**<p style="text-align: center;"> ![pybytes-reg.png](/assets/images/pybytes-reg.png) </p>** **<p style="text-align: center;"> Snimka 3.2. (<a href="../assets/images/pybytes-reg.png">see full-size image</a>) </p>** <br />
+**<p style="text-align: center;"> ![pybytes-reg.png](assets/images/pybytes-reg.png) </p>** **<p style="text-align: center;"> Snimka 3.2. (<a href="../assets/images/pybytes-reg.png">see full-size image</a>) </p>** <br />
 
 Ako vsichko e nared stoinostta na poleto _last connection_ trqbva da se promeni ot _never connected_ na _few seconds ago_
 
-**<p style="text-align: center;"> ![connection-ok.gif](/assets/videos/connection-ok.gif) </p>** **<p style="text-align: center;"> Snimka 3.2. (<a href="/assets/videos/connection-ok.gif">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![connection-ok.gif](assets/videos/connection-ok.gif) </p>** **<p style="text-align: center;"> Snimka 3.2. (<a href="../assets/videos/connection-ok.gif">see full-size image</a>) </p>**
