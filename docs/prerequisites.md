@@ -12,6 +12,15 @@ vscode/atom with pymakr addon
 
 on linux, add urself to dialout/uucp group
 
+__how to__
+on arch:
+
+`$ sudo usermod -a -G uucp <username>`
+
+`$ sudo chmod 666 /dev/tty<device-port>`
+
+after this pymakr plugin for atom/vscode should work as expected
+
 on win, make sure u have all drivers (CH340, CP21XX, etc)
 
 Serial COM Terminal of ur choice
