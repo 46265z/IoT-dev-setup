@@ -51,22 +51,22 @@ v programata otvarqme File -> Preferences _(Ctrl+Comma)_
 
 v poleto _Additional Boards Manager URLs_ dobavqme tozi link -> https://dl.espressif.com/dl/package_esp32_index.json
 
-<img src="/assets/images/higrow-wroom32/preferences-boards.png" alt="preferences" style="zoom:75%;" />
+<img src="assets/images/higrow-wroom32/preferences-boards.png" alt="preferences" style="zoom:75%;" />
 
-<img src="/assets/images/higrow-wroom32/add-ok-ok.png" alt="addOkOk" style="zoom:75%;" />
+<img src="assets/images/higrow-wroom32/add-ok-ok.png" alt="addOkOk" style="zoom:75%;" />
 
 sled tova ot menu-to otvarqme Boards Manager - _Tools -> Board -> Boards Manager_ 
 
-<img src="/assets/images/higrow-wroom32/boards-manager.png" alt="bmanager" style="zoom:75%;" />
+<img src="assets/images/higrow-wroom32/boards-manager.png" alt="bmanager" style="zoom:75%;" />
 
 trqbva da instalirame support za esp32 (by espressif systems)
 
-<img src="/assets/images/higrow-wroom32/search-install-esp32.png" alt="search-install" style="zoom:75%;" />
+<img src="assets/images/higrow-wroom32/search-install-esp32.png" alt="search-install" style="zoom:75%;" />
 
 syshto taka trqva da instalirame biblioteka za rabota sus senzora za vlajnost (DHT)
 
 v menu _Tools -> Manage Libraries_ tursim DHT sensor library **by Adafruit** 
 
-![install-dht](/assets/images/higrow-wroom32/install-dht-lib.png)
+![install-dht](assets/images/higrow-wroom32/install-dht-lib.png)
 
 ### <!--Za arch linux-->
