@@ -51,13 +51,11 @@ v programata otvarqme File -> Preferences _(Ctrl+Comma)_
 
 v poleto _Additional Boards Manager URLs_ dobavqme tozi link -> https://dl.espressif.com/dl/package_esp32_index.json
 
-**<p style="text-align: center;"> ![preferences-boards.png](assets/images/higrow-wroom32/preferences-boards.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![preferences-boards.png](../../assets/images/higrow-wroom32/preferences-boards.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
+
+**<p style="text-align: center;"> ![addOkOk.png](../../assets/images/higrow-wroom32/add-ok-ok.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
 
 
-
-<img src="" alt="preferences" style="zoom:75%;" />
-
-<img src="assets/images/higrow-wroom32/add-ok-ok.png" alt="addOkOk" style="zoom:75%;" />
 
 sled tova ot menu-to otvarqme Boards Manager - _Tools -> Board -> Boards Manager_ 
 
