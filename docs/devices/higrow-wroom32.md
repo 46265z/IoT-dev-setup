@@ -59,16 +59,16 @@ v poleto _Additional Boards Manager URLs_ dobavqme tozi link -> https://dl.espre
 
 sled tova ot menu-to otvarqme Boards Manager - _Tools -> Board -> Boards Manager_ 
 
-<img src="assets/images/higrow-wroom32/boards-manager.png" alt="bmanager" style="zoom:75%;" />
+**<p style="text-align: center;"> ![boards-manager.png](../../assets/images/higrow-wroom32/boards-manager.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
 
 trqbva da instalirame support za esp32 (by espressif systems)
 
-<img src="assets/images/higrow-wroom32/search-install-esp32.png" alt="search-install" style="zoom:75%;" />
+**<p style="text-align: center;"> ![search-install-esp32.png](../../assets/images/higrow-wroom32/search-install-esp32.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
 
 syshto taka trqva da instalirame biblioteka za rabota sus senzora za vlajnost (DHT)
 
 v menu _Tools -> Manage Libraries_ tursim DHT sensor library **by Adafruit** 
 
-![install-dht](assets/images/higrow-wroom32/install-dht-lib.png)
+**<p style="text-align: center;"> ![install-dht-lib.png](../../assets/images/higrow-wroom32/install-dht-lib.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/pycomflasher.png">see full-size image</a>) </p>**
 
 ### <!--Za arch linux-->
