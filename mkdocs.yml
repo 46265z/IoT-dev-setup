@@ -161,7 +161,7 @@ nav:
     - Higrow wroom32: devices/higrow-wroom32.md
     - Smart Watering: devices/smart-watering.md
     - Wemos Lolin: devices/wemos-lolin.md
-	- UNO WIFI: devices/uno-wifi.md
+    - UNO WIFI: devices/uno-wifi.md
     - Sodaq Sara: devices/sodaq-sara-aff.md
   # - Getting started:
   #   - Installation: getting-started.md
