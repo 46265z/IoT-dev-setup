@@ -12,3 +12,11 @@ On the board where the switch of mode of operation with 8 position
 
 **<p style="text-align: center;"> ![eight_switch.jpg](../../assets/images/uno_wifi/eight_switch.jpg) </p>** **<p style="text-align: center;"> суичове (<a href="../../assets/images/uno_wifi/eight_switch.jpg">see full-size image</a>) </p>**
 
+To communicate between Arduino and ESP you will need to activate deep switches 1 and 2.
+To upload a sketch on ESP: 5, 6, 7. (source code in [uno_wifi/ino-workspace](https://github.com/46265z/IoT-dev-setup/tree/main/devices/uno_wifi/ino-workspace) )
+To upload on Arduino: 3, 4. ()
+**Don't forget to change board options before uploading when switching.**
+
+To see what is transferred to ESP from Arduino: 1, 2, 3, 4.
+To see what is transferred to Arduino from ESP: 1, 2, 5, 6.
+(by opening serial terminal)
