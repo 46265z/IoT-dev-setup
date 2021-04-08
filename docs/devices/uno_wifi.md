@@ -10,5 +10,5 @@ On the board where the switch of mode of operation with 8 position
 
 
 
-**<p style="text-align: center;"> ![switch.jpg](../../assets/images/uno_wifi/switch.jpg) </p>** **<p style="text-align: center;"> суичове (<a href="../../assets/images/uno_wifi/switch.jpg">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![eight_switch.jpg](../../assets/images/uno_wifi/eight_switch.jpg) </p>** **<p style="text-align: center;"> суичове (<a href="../../assets/images/uno_wifi/eight_switch.jpg">see full-size image</a>) </p>**
 
