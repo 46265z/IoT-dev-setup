@@ -12,7 +12,7 @@ On the board where the switch of mode of operation with 8 position
 
 <img src="/home/alexander/GitHub/IoT-dev-setup/docs/assets/images/uno_wifi/eight_switch.jpg" style="zoom: 25%;" />
 
-**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/eight_switch.jpg" style="zoom: 25%;" /> </p>** **<p style="text-align: center;"> суичове (<a href="../../assets/images/uno_wifi/eight_switch.jpg">see full-size image</a>) </p>**
+**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/eight_switch.jpg" style="zoom: 15%;" /> </p>** **<p style="text-align: center;"> суичове (<a href="../../assets/images/uno_wifi/eight_switch.jpg">see full-size image</a>) </p>**
 
 To communicate between Arduino and ESP you will need to activate deep switches 1 and 2.
 To upload a sketch on ESP: 5, 6, 7. (source code in [uno_wifi/ino-workspace](https://github.com/46265z/IoT-dev-setup/tree/main/devices/uno_wifi/ino-workspace) )
@@ -27,6 +27,12 @@ To see what is transferred to Arduino from ESP: 1, 2, 5, 6.
 
 ### atmega328p code
 
-За да качим код на atmega328p: настроиваме суичовете; в ArduinoIde_>Tools>Board: Arduno UNO_; 
+За да качим код на atmega328p: настроиваме суичовете; в ArduinoIde_>Tools>Board: Arduno UNO;_ 
 
-**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/switch_set_atmega.jpg" style="zoom: 25%;" /> </p>** **<p style="text-align: center;"> суичове arduino uno(<a href="../../assets/images/uno_wifi/switch_set_atmega_fullscreen.jpg">see full-size image</a>) </p>**
+**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/switch_set_atmega.jpg" style="zoom: 50%;" /> </p>** **<p style="text-align: center;"> суичове arduino uno(<a href="../../assets/images/uno_wifi/switch_set_atmega_fullscreen.jpg">see full-size image</a>) </p>**
+
+### esp8266 code
+
+За да качим код на esp8266: настроиваме суичовете; в ArduinoIde_>Tools>Board: Generic ESP8266 Module;_ 
+
+**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/switch_set_8266.jpg" style="zoom: 50%;" /> </p>** **<p style="text-align: center;"> суичове ESP8266(<a href="../../assets/images/uno_wifi/switch_set_8266_fullscreen.jpg">see full-size image</a>) </p>**
