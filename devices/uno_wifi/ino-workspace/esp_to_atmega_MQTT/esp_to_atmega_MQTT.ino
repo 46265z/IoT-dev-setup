@@ -9,10 +9,16 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-#define wifi_ssid "" //your SSID
-#define wifi_password "" //your wifi PW
+#define wifi_ssid "OpenWrt" //your SSID
+#define wifi_password "yjsyy7hz" //your wifi PW
 #define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
-char*FLESPI_TOKEN = "";
+char*FLESPI_TOKEN = "yTFAkt3NJnuPFyjVB9jvaeUFUvQDMByak3Bsls4UDoy8KHRbEYwE0e8KzOdbgAao";
+
+byte willQoS = 0;
+char*willTopic = "announcement/disconnected";
+char*willMessage = "<client> disconnected";
+boolean willRetain = false;
+
 
 void callback(char* topic, byte* payload, unsigned int length) {
   // when a msg is received this callback will trigger
@@ -36,7 +42,7 @@ PubSubClient client(espClient);
 long lastReconnectAttempt = 0;
 
 boolean reconnect() {
-  if (client.connect("esp_to_atmega_CLIENT", FLESPI_TOKEN, "cleanSession=true")) {
+  if (client.connect("esp_to_atmega_CLIENT", FLESPI_TOKEN, "cleanSession=true", willTopic, willQoS, willRetain, willMessage)) {
     // Once connected, publish an announcement...
     client.publish("announcement/connected", "esp_to_ATMEGA"); // (reedSwitchState == 0) ? "Door closed." : "Door opened!");
     // ... and resubscribe
@@ -46,8 +52,11 @@ boolean reconnect() {
 }
 
 void setup() {
-//Serial.begin(115200); // got errors at this rate
+  //Serial.begin(115200); // got errors at this rate
   Serial.begin(57600);
+//  StaticJsonDocument<200> doc;
+//  doc["temperature"] = 0.0;
+//  doc["humidity"] = 0.0;
   //connect to mqtt broker
   client.setServer(mqtt_server, 1883);
   //set callback
@@ -55,52 +64,68 @@ void setup() {
   WiFi.begin(wifi_ssid, wifi_password);
   delay(1500);
   lastReconnectAttempt = 0;
-  }
+}
 
 void loop()
 {
+  // put your main code here to run repeatedly
   bool StringReady;
   String json;
 
-   //ACCEPT DATA FROM THE ARDUINO
-         while (Serial.available()){ // listen for serial data from the Arduino Atmega328
-         json=Serial.readString();
-         StringReady = true;
-         }
-     
-         if (StringReady){
-          StaticJsonBuffer<200> jsonBuffer;  // preallocated memory to store the JsonObject max 200 bytes
-//          StaticJsonDocument<200> json/
-          JsonObject& root = jsonBuffer.parseObject(json); // turning the string into JSON data
-       
-            if(!root.success()) {
-              //Serial.println("parseObject() failed");
-              return ;
-            }
-       
-         String rawTemp = root["temperature"]; //
-         String rawHum = root["humidity"]; //
-         String temperatureMessage = rawTemp + "oC : temperature recieved from Arduino at ESP"; //
-         String humidityMessage = rawHum + "% : humidity recieved from Arduino at ESP"; //
-         Serial.println();
-         Serial.println(temperatureMessage);
-         Serial.println(humidityMessage);
-         Serial.println();
-         root.remove("temperature");// remove the temp field from the JSON root object so I can reuse the root object to send back data
-         root.remove("humidity");
-         // if the serial console is open it will print: 22:40:32.989 -> 21oC : temperature recieved from Arduino at ESP
+  //ACCEPT DATA FROM THE ARDUINO
+  while (Serial.available()) { // listen for serial data from the Arduino Atmega328
+    json = Serial.readString();
+    StringReady = true;
+  }
+
+  if (StringReady) {
+    StaticJsonBuffer<200> jsonBuffer;  // preallocated memory to store the JsonObject max 200 bytes
+    //StaticJsonDocument<200> json;
+    JsonObject& root = jsonBuffer.parseObject(json); // turning the string into JSON data
+
+    if (!root.success()) {
+      //Serial.println("parseObject() failed");
+      return ;
+    }
+    //size_t n = serializeJson(doc, buffer);
+    String rawTemp = root["temperature"]; //
+    String rawHum = root["humidity"]; //
+    String temperatureMessage = rawTemp + "oC : temperature recieved from Arduino at ESP"; //
+    String humidityMessage = rawHum + "% : humidity recieved from Arduino at ESP"; //
+//    Serial.println();/
+//    Serial.println(temperatureMessage/);
+//    Serial.println(humidityMessage/);
+    client.publish("temphum", json.c_str());
+//    Serial.println();/
+    root.remove("temperature");// remove the temp field from the JSON root object so I can reuse the root object to send back data
+    root.remove("humidity");
+    // if the serial console is open it will print: 22:40:32.989 -> 21oC : temperature recieved from Arduino at ESP
 
 
 
-//         // SEND DATA BACK TO THE ARDUINO
-//         //delay (5000); // delay the send back by 5 seconds
-//         String tempMessageSendToArduino = rawTemp + "oC OK";
-//         DynamicJsonBuffer jbuffer;
-//         // JsonObject& root = jbuffer.createObject(); // no need as the root object is alreadly made, if I wanted a new one I would put it here
-//         //Serial.println("Data sent back to Arduino in next line");
-//         root["retMsg"] = tempMessageSendToArduino;  // I am reusing the root object, I could make a new one
-//         root.printTo(Serial);
-//         Serial.println();
+    //         // SEND DATA BACK TO THE ARDUINO
+    //         //delay (5000); // delay the send back by 5 seconds
+    //         String tempMessageSendToArduino = rawTemp + "oC OK";
+    //         DynamicJsonBuffer jbuffer;
+    //         // JsonObject& root = jbuffer.createObject(); // no need as the root object is alreadly made, if I wanted a new one I would put it here
+    //         //Serial.println("Data sent back to Arduino in next line");
+    //         root["retMsg"] = tempMessageSendToArduino;  // I am reusing the root object, I could make a new one
+    //         root.printTo(Serial);
+    //         Serial.println();
 
-   }
+  }
+  if (!client.connected()) {
+    long now = millis();
+    if (now - lastReconnectAttempt > 5000) {
+      lastReconnectAttempt = now;
+      // Attempt to reconnect
+      if (reconnect()) {
+        lastReconnectAttempt = 0;
+      }
+    }
+  } else {
+    // Client connected
+
+    client.loop();
+  }
 }
