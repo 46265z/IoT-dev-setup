@@ -27,3 +27,6 @@ To see what is transferred to Arduino from ESP: 1, 2, 5, 6.
 
 ### atmega328p code
 
+За да качим код на atmega328p: настроиваме суичовете; в ArduinoIde_>Tools>Board: Arduno UNO_; 
+
+**<p style="text-align: center;"> <img src="../../assets/images/uno_wifi/switch_set_atmega.jpg" style="zoom: 25%;" /> </p>** **<p style="text-align: center;"> суичове arduino uno(<a href="../../assets/images/uno_wifi/switch_set_atmega_fullscreen.jpg">see full-size image</a>) </p>**
