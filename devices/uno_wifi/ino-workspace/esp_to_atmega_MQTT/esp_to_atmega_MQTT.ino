@@ -15,12 +15,6 @@
 #define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
 char*FLESPI_TOKEN = "";
 
-#define wifi_ssid "OpenWrt" //your SSID
-#define wifi_password "yjsyy7hz" //your wifi PW
-#define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
-char*FLESPI_TOKEN = "yTFAkt3NJnuPFyjVB9jvaeUFUvQDMByak3Bsls4UDoy8KHRbEYwE0e8KzOdbgAao";
-
-
 byte willQoS = 0;
 char*willTopic = "announcement/disconnected";
 char*willMessage = "<client> disconnected";
