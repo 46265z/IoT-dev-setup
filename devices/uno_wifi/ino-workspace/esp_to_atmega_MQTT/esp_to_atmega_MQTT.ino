@@ -9,10 +9,17 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
+<<<<<<< HEAD
 #define wifi_ssid "" //your SSID
 #define wifi_password "" //your wifi PW
 #define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
 char*FLESPI_TOKEN = "";
+=======
+#define wifi_ssid "OpenWrt" //your SSID
+#define wifi_password "yjsyy7hz" //your wifi PW
+#define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
+char*FLESPI_TOKEN = "yTFAkt3NJnuPFyjVB9jvaeUFUvQDMByak3Bsls4UDoy8KHRbEYwE0e8KzOdbgAao";
+>>>>>>> 6dd9d4f85cc65b3fc7e6aa5da0442403be39bd4f
 
 byte willQoS = 0;
 char*willTopic = "announcement/disconnected";
