@@ -10,6 +10,7 @@
 #include <PubSubClient.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define wifi_ssid "" //your SSID
 #define wifi_password "" //your wifi PW
 #define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
@@ -26,6 +27,12 @@ char*willTopic = "announcement/disconnected";
 char*willMessage = "<client> disconnected";
 boolean willRetain = false;
 
+=======
+#define wifi_ssid "" //your SSID
+#define wifi_password "" //your wifi PW
+#define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
+char*FLESPI_TOKEN = "";
+>>>>>>> parent of 5eb5b89 (mqtt code & docs)
 
 void callback(char* topic, byte* payload, unsigned int length) {
   // when a msg is received this callback will trigger
