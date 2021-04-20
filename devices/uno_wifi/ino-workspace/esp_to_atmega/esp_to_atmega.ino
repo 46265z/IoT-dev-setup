@@ -1,3 +1,5 @@
+//#include <ThingsBoard.h>
+
 // Simple sketch on the ESP8266 to read data sent from ATmega328
 //Dip switch 1,2 are set "On" to connect the ATmega and ESP serial TX/RX
 // If you want to read the ESP in the serial monitor whilst ATmega and ESP connected then set dip switch 1,2,5,6 to "On"; at this setting any Serial.println will be sent back to the Atmega and confuse the JSON parsing so comment them all out that you do not want sent
@@ -5,7 +7,7 @@
 // Every Serial.println message from ESP gets sent back to the Arduino, this is why all println are commented out soonly data is sent
 
 #include <ArduinoJson.h>
-
+//#define TOKEN "C1WKyEDhfXYIOPiychE4"
 void setup() {
 //Serial.begin(115200); // got errors at this rate
   Serial.begin(57600);

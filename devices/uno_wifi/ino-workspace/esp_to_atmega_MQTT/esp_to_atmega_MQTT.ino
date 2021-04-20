@@ -1,3 +1,5 @@
+#include <ThingsBoard.h>
+
 // Simple sketch on the ESP8266 to read data sent from ATmega328
 //Dip switch 1,2 are set "On" to connect the ATmega and ESP serial TX/RX
 // If you want to read the ESP in the serial monitor whilst ATmega and ESP connected then set dip switch 1,2,5,6 to "On"; at this setting any Serial.println will be sent back to the Atmega and confuse the JSON parsing so comment them all out that you do not want sent
@@ -9,21 +11,15 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-
-#define wifi_ssid "" //your SSID
-#define wifi_password "" //your wifi PW
-#define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
-char*FLESPI_TOKEN = "";
-
 byte willQoS = 0;
 char*willTopic = "announcement/disconnected";
 char*willMessage = "<client> disconnected";
 boolean willRetain = false;
 
-#define wifi_ssid "" //your SSID
-#define wifi_password "" //your wifi PW
+#define wifi_ssid "OpenWrt" //your SSID
+#define wifi_password "yjsyy7hz" //your wifi PW
 #define mqtt_server "mqtt.flespi.io" //your MQTT Server IP Address
-char*FLESPI_TOKEN = "";
+char*FLESPI_TOKEN = "vjbUz1Bxd7FwhE99n3WvmjMZSJZ0IVN32MOrDdPH8k1gM0fXR1i38SRQpEGXphRi ";
 
 void callback(char* topic, byte* payload, unsigned int length) {
   // when a msg is received this callback will trigger
