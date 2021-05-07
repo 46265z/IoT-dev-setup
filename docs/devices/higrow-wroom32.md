@@ -51,24 +51,24 @@ v programata otvarqme File -> Preferences _(Ctrl+Comma)_
 
 v poleto _Additional Boards Manager URLs_ dobavqme tozi link -> https://dl.espressif.com/dl/package_esp32_index.json
 
-**<p style="text-align: center;"> ![preferences-boards.png](../../assets/images/higrow-wroom32/preferences-boards.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../../assets/images/higrow-wroom32/preferences-boards.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![preferences-boards.png](../assets/images/higrow-wroom32/preferences-boards.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/higrow-wroom32/preferences-boards.png">see full-size image</a>) </p>**
 
-**<p style="text-align: center;"> ![addOkOk.png](../../assets/images/higrow-wroom32/add-ok-ok.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../../assets/images/higrow-wroom32/add-ok-ok.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![addOkOk.png](../assets/images/higrow-wroom32/add-ok-ok.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/higrow-wroom32/add-ok-ok.png">see full-size image</a>) </p>**
 
 
 
 sled tova ot menu-to otvarqme Boards Manager - _Tools -> Board -> Boards Manager_ 
 
-**<p style="text-align: center;"> ![boards-manager.png](../../assets/images/higrow-wroom32/boards-manager.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../../assets/images/higrow-wroom32/boards-manager.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![boards-manager.png](../assets/images/higrow-wroom32/boards-manager.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/higrow-wroom32/boards-manager.png">see full-size image</a>) </p>**
 
 trqbva da instalirame support za esp32 (by espressif systems)
 
-**<p style="text-align: center;"> ![search-install-esp32.png](../../assets/images/higrow-wroom32/search-install-esp32.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../../assets/images/higrow-wroom32/search-install-esp32.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![search-install-esp32.png](../assets/images/higrow-wroom32/search-install-esp32.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/higrow-wroom32/search-install-esp32.png">see full-size image</a>) </p>**
 
 syshto taka trqva da instalirame biblioteka za rabota sus senzora za vlajnost (DHT)
 
 v menu _Tools -> Manage Libraries_ tursim DHT sensor library **by Adafruit** 
 
-**<p style="text-align: center;"> ![install-dht-lib.png](../../assets/images/higrow-wroom32/install-dht-lib.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../../assets/images/higrow-wroom32/install-dht-lib.png">see full-size image</a>) </p>**
+**<p style="text-align: center;"> ![install-dht-lib.png](../assets/images/higrow-wroom32/install-dht-lib.png) </p>** **<p style="text-align: center;"> Image 3.1. (<a href="../assets/images/higrow-wroom32/install-dht-lib.png">see full-size image</a>) </p>**
 
 ### <!--Za arch linux-->

@@ -146,7 +146,7 @@ nav:
   - Home: index.md
   - Prerequisites: prerequisites.md
   - How To:
-    #    - Setup device: setup-device.md
+    - Setup device: setup-device.md
     - Connect device: connect-device.md
     - Setup Pybytes project: setup-pybytes-project.md
     - Import: import-code-from-github.md
@@ -163,6 +163,11 @@ nav:
     - Wemos Lolin: devices/wemos-lolin.md
     - UNO WIFI: devices/uno-wifi.md
     - Sodaq Sara: devices/sodaq-sara-aff.md
+  - Modules:
+    - MH-RTC-2: modules/mh-rtc-2.md
+    - Next-mod: modules/next-mod-template.md
+  - List:
+    - Device list: devices/list-of-devices.md
   # - Getting started:
   #   - Installation: getting-started.md
   #   - Creating your site: creating-your-site.md
