@@ -4,11 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+mkdocs = "*"
 mkdocs-material = "*"
 mkdocs-minify-plugin = "*"
 mkdocs-pdf-export-plugin = "*"
-
-[dev-packages]
-
-[requires]
-python_version = "3.9"

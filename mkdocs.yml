@@ -52,7 +52,7 @@ theme:
   # Plugins
 plugins:
   - search
-  - pdf-export
+  # - pdf-export
   # - redirects:
   #     redirect_maps:
   #       extensions/admonition.md: reference/admonitions.md
