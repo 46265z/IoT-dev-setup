@@ -2,6 +2,8 @@
 | --------------------- | ----------------- | --------------------- |
 | [micropython code](#) | [arduino code](#) | mqtt platform: flespi |
 
+![](https://m.media-amazon.com/images/I/51yMpury-cL._AC_SL1000_.jpg)
+
 <!-- Izpolzva micropython -->
 
 ``` c++

@@ -1,13 +1,15 @@
 # Expansion Board 3.0
-Compatible with the WiPy 3.0,  LoPy4, SiPy, FiPy and GPy.
+Съвместимост с WiPy 3.0,  LoPy4, SiPy, FiPy и GPy.
 
-[Official site](https://pycom.io/product/expansion-board-3-0/)
-[Datasheet](https://docs.pycom.io/datasheets/expansionboards/expansion3/)
+[Product page](https://docs.pycom.io/datasheets/expansionboards/expansion3/)
+[Datasheet](https://docs.pycom.io/gitbook/assets/expansion3-specsheet-1.pdf)
+[Pinout](https://docs.pycom.io/gitbook/assets/expansion3-pinout.pdf)
 
 ![](https://pycom.io/wp-content/uploads/2020/03/Website-Product-Shots-ExpB-Front.png)
 
 ---
 ## Connecting to MQTT broker
+Note that in the follow example I used WiPy 3.0 with the expansion board.
 
 ### boot.py
 ```python
@@ -48,7 +50,7 @@ print(station.ifconfig())
 ```
 
 ### main.py
-In this example the main file could be empty. The following example blinks the onboard led.
+In this example the main file could be empty. The following code blinks the onboard led.
 ```python
 import pycom
 import time

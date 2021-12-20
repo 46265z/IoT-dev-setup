@@ -11,9 +11,9 @@ import network
 import gc
 gc.collect()
 
-ssid = 'Gargoyle'
-password = 'd6ny5v1x2pc7st8m'
-mqtt_server = 'mqtt.flespi.io'
+ssid = 'YOUR_WIFI_SSID'
+password = 'YOUR_WIFI_PASSWORD'
+mqtt_server = 'BROKER_IP_ADDRESS_OR_DOMAIN_NAME'
 #EXAMPLE IP ADDRESS
 #mqtt_server = '192.168.1.144'
 client_id = ubinascii.hexlify(machine.unique_id())
