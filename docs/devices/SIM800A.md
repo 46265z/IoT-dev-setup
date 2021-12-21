@@ -160,6 +160,10 @@ void updateSerial()
 
 ![ArduinoUNO-RelayModule-Control_Annotation_2021-12-21](https://user-images.githubusercontent.com/76831786/146924659-9abd314a-f986-4219-8781-2147018752f0.jpg)
 
+![Uno-RelayModule (2)](https://user-images.githubusercontent.com/76831786/146932715-45296b7b-a011-4c4e-babc-be97c8e3e218.jpg)
+
+![Basic-Uno-RelayModule](https://user-images.githubusercontent.com/76831786/146933599-835186f6-ed41-4611-92a8-04913feaf7b0.gif)
+
 ### Стъпка 3 Трябва да бъде отделна точка
 Добавяме Реле модула към установката.
 
