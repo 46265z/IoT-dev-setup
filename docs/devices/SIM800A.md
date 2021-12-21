@@ -1,11 +1,8 @@
 # sim800a
- working with sim800a module
-[Product page](https://docs.pycom.io/datasheets/expansionboards/pytrack2/) - Unknown
-[Datasheet](https://docs.pycom.io/gitbook/assets/PyTrack2X_specsheet.pdf) - Unknown
-<!-- [Pinout](https://docs.pycom.io/gitbook/assets/pytrack2-pinout.pdf) - Unknown 
 
-![](https://pycom.io/wp-content/uploads/2020/05/8CC1A8FC-92DA-4BEB-ADF0-AD268CC4AE62.png)-->
-
+[Product page](#) - Unknown
+[Datasheet](#) - Unknown
+[Pinout](#) - On board
 
 <img src="https://user-images.githubusercontent.com/47386361/144780422-82cb579c-5db2-4714-8708-d06365506a59.png" width="300" height="300" />
 
