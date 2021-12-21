@@ -36,7 +36,8 @@ _значението на буквата в края (как се нарича?
 
 ## Свързване
 <!-- GSM_USB-UART_diag -->
-![]()
+![GSM_USB-UART_Annotation 2021-12-21](https://user-images.githubusercontent.com/47386361/146909729-1523e3e4-3776-4f60-8d5f-b5b8216aac3f.jpg)
+
 
 ![PINS-USED-ON-CONVERTER](https://user-images.githubusercontent.com/47386361/146182349-fcba18c2-f08c-4967-9919-4674dd1d6b3a.jpg)
 ![module-connected-to-converter](https://user-images.githubusercontent.com/47386361/146182940-eb4e954b-2b2c-40dc-9e7b-4c6545c84c8f.jpg)
