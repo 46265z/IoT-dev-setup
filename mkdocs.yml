@@ -158,13 +158,10 @@ nav:
     - Pyscan: devices/pyscan.md
     - Pysense2x: devices/pysense2x.md
     - Pytrack2x: devices/pytrack2x.md
-    - WiPy 3: devices/wipy3.md
-    - LoPy4: devices/lopy4.md
     - Higrow wroom32: devices/higrow-wroom32.md
-    - UNO WIFI: devices/uno-wifi.md
-    - SIM800A: devices/SIM800A.md
-    - Wemos Lolin: devices/wemos-lolin.md
     - Smart Watering: devices/smart-watering.md
+    - Wemos Lolin: devices/wemos-lolin.md
+    - UNO WIFI: devices/uno-wifi.md
     - Sodaq Sara: devices/sodaq-sara-aff.md
   - Modules:
     - MH-RTC-2: modules/mh-rtc-2.md
