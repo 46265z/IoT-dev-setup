@@ -160,6 +160,51 @@ void updateSerial()
 
 ![ArduinoUNO-RelayModule-Control_Annotation_2021-12-21](https://user-images.githubusercontent.com/76831786/146924659-9abd314a-f986-4219-8781-2147018752f0.jpg)
 
+#### Основен код
+Следващият код ще изпозлваме като основа за следващите примери, в който ще добавим приемане на команда през серийния порт, т.н. ...
+
+```c++
+int RelayPin = 7;
+
+void setup() {
+  // Initialize serial connection at 9600 baudrate
+  Serial.begin(9600);
+  
+  // Confirm that serial comm. is established
+  Serial.println("Serial communication established.");
+  
+  // Set RelayPin as an output pin
+  Serial.println("Setting RelayPin as output");
+  pinMode(RelayPin, OUTPUT);
+}
+
+void loop() {
+  // Turn on the relay...
+  Serial.println("Turning the relay on (digitalWrite)");
+  digitalWrite(RelayPin, LOW);
+  delay(400);
+  Serial.println("Reading pin state with digitalRead and returning the current state.");
+  delay(100);
+  Serial.println(digitalRead(RelayPin));
+  delay(2500);
+  
+  // Turn off the relay...
+  Serial.println("Turning the relay off (digitalWrite)");
+  digitalWrite(RelayPin, HIGH);
+  delay(400);
+  Serial.println("Reading pin state with digitalRead and returning the current state.");
+  delay(100);
+  Serial.println(digitalRead(RelayPin));
+  delay(2500);
+}
+```
+
+Резултата наблюдаван в серийния монитор:
+
+![image](https://user-images.githubusercontent.com/76831786/146934168-1162ab69-346b-4dc2-9577-6cac856b5b4f.png)
+
+Реални снимки на установката, и кратко видео на работата и:
+
 ![Uno-RelayModule (2)](https://user-images.githubusercontent.com/76831786/146932715-45296b7b-a011-4c4e-babc-be97c8e3e218.jpg)
 
 ![Basic-Uno-RelayModule](https://user-images.githubusercontent.com/76831786/146933599-835186f6-ed41-4611-92a8-04913feaf7b0.gif)
