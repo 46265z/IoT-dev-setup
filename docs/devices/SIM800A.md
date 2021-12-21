@@ -158,6 +158,7 @@ void updateSerial()
 #### Свързане
 Следва диаграма на свързките между релето и контролера.
 
+![ArduinoUNO-RelayModule-Control_Annotation_2021-12-21](https://user-images.githubusercontent.com/76831786/146924659-9abd314a-f986-4219-8781-2147018752f0.jpg)
 
 ### Стъпка 3 Трябва да бъде отделна точка
 Добавяме Реле модула към установката.
