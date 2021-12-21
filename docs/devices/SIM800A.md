@@ -203,9 +203,11 @@ void loop() {
 
 ![image](https://user-images.githubusercontent.com/76831786/146934168-1162ab69-346b-4dc2-9577-6cac856b5b4f.png)
 
-Реални снимки на установката, и кратко видео на работата и:
+Реални снимки на установката:
 
 ![Uno-RelayModule (2)](https://user-images.githubusercontent.com/76831786/146932715-45296b7b-a011-4c4e-babc-be97c8e3e218.jpg)
+
+Кратко видео по време на операция:
 
 ![Basic-Uno-RelayModule](https://user-images.githubusercontent.com/76831786/146933599-835186f6-ed41-4611-92a8-04913feaf7b0.gif)
 
