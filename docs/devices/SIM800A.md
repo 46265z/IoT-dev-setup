@@ -152,7 +152,7 @@ void updateSerial()
 
 ![ArduinoIDE-SerialMonitor-OUTPUT-v1_Annotation_2021-12-15](https://user-images.githubusercontent.com/47386361/146197952-5c91d80a-91ee-441d-86f0-23d123acf628.jpg)
 
-### Контролиране на реле модул
+### 2.Контролиране на реле модул
 **Ще използваме Arduino UNO за да имплементираме код разбиращ няколко команди.**
 
 #### Свързане
