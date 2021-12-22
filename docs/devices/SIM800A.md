@@ -200,6 +200,8 @@ void loop() {
 }
 ```
 
+#### Резултат
+
 Резултата наблюдаван в серийния монитор:
 
 ![image](https://user-images.githubusercontent.com/76831786/146934168-1162ab69-346b-4dc2-9577-6cac856b5b4f.png)
