@@ -1,0 +1,51 @@
+#include <SoftwareSerial.h>
+
+//Create software serial object to communicate with SIM800A
+SoftwareSerial mySerial(3, 2); //SIM800A Tx & Rx is connected to Arduino #3 & #2
+
+void setup()
+{
+  //Begin serial communication with Arduino and Arduino IDE (Serial Monitor)
+  Serial.begin(9600);
+
+  //Begin serial communication with Arduino and SIM800А
+  mySerial.begin(9600);
+
+  Serial.println("Initializing...");
+  delay(1000);
+
+  mySerial.println("AT"); //Once the handshake test is successful, it will back to OK
+  updateSerial();
+  mySerial.println("AT+CSQ"); //Signal quality test, value range is 0-31 , 31 is the best
+  updateSerial();
+  mySerial.println("AT+CCID"); //Read SIM information to confirm whether the SIM is plugged
+  updateSerial();
+  mySerial.println("AT+CREG?"); //Check whether it has registered in the network
+  updateSerial();
+  mySerial.println("AT+CMGF=1"); // Set module to text mode
+  updateSerial();
+  Serial.println("AT+CMGS=\"+359878644188\""); // Replace XXXXXXXXXX to 10 digit mobile number & ZZ
+                    // to 2 digit country code
+  updateSerial();
+  Serial.println("HELLO");
+  updateSerial();
+  Serial.write(0x1A);
+}
+
+void loop()
+{
+  updateSerial();
+}
+
+void updateSerial()
+{
+  delay(500);
+  while (Serial.available())
+  {
+    mySerial.write(Serial.read());//Forward what Serial received to Software Serial Port
+  }
+  while (mySerial.available())
+  {
+    Serial.write(mySerial.read());//Forward what Software Serial received to Serial Port
+  }
+}
