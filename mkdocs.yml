@@ -166,6 +166,8 @@ nav:
     - Wemos Lolin: devices/wemos-lolin.md
     - Smart Watering: devices/smart-watering.md
     - Sodaq Sara: devices/sodaq-sara-aff.md
+  - Telemetry:
+    - MQTT: telemetry/mqtt.md
   - Modules:
     - MH-RTC-2: modules/mh-rtc-2.md
     - Next-mod: modules/next-mod-template.md
