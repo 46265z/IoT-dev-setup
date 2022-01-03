@@ -173,6 +173,7 @@ nav:
     - Next-mod: modules/next-mod-template.md
   - List:
     - Device list: devices/list-of-devices.md
+  - Spectra EIT Kit: spektra-eit/spektra-eit.md
   # - Getting started:
   #   - Installation: getting-started.md
   #   - Creating your site: creating-your-site.md
