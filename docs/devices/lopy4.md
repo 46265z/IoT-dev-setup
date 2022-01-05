@@ -7,7 +7,8 @@ LoPy<sup>4</sup> е програмируема платка поддържаща
 [Pinout](https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf)
 
 
-![lopy4-resized](https://user-images.githubusercontent.com/47386361/148212488-3cdf946d-dc85-4f4b-b4ae-8a499d926501.png)
+![lopy4-resized-removebg-preview](https://user-images.githubusercontent.com/47386361/148212731-c2cac252-3958-4a18-be67-c3dd899a0563.png)
+
 
 ---
 
