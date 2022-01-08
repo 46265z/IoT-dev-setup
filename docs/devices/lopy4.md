@@ -276,6 +276,74 @@ Ping резултат:
 
 Сваляме сорс кода на MQTT клиента от [тук](https://github.com/pycom/pycom-libraries/blob/master/lib/mqtt/mqtt.py). Запазваме го в директория `lib` на проекта.
 
+`boot.py` ще съдържа кода за свързване с мрежата:
+Това е кода от първия пример.
+
+```python
+from network import WLAN
+import machine
+wlan = WLAN(mode=WLAN.STA)
+
+nets = wlan.scan()
+for net in nets:
+    if net.ssid == 'IoT-dev-env': # <Your-Wifi-SSID> е името на вашата мрежа
+        print('[INFO]\tNetwork found!')
+        wlan.connect(net.ssid, auth=(net.sec, '12345678'), timeout=5000) # <yourWifiKey> Трябва да бъде паролата за вашата мрежа
+        while not wlan.isconnected():
+            machine.idle() # save power while waiting
+        print('[INFO]\tWLAN connection succeeded!')
+        break
+    else:
+        print('[WARNING]\tThe network you are searching for could not be found.')
+		break
+```
+
+В `main.py` ще пишем кода който отговаря за свързването към брокера и изпращане и получване на съобщения:
+
+```python
+from mqtt import MQTTClient # this will be found in /lib directory
+
+import time
+
+def sub_cb(topic, msg):
+    """
+    This function is executed everytime a new message
+    arrives on the topic we have subscribed to.
+    It prints the topic and the content of the message.
+    """
+    print("New message arrived in topic ",topic," with content ", msg, end ='')
+    print()
+
+# Create an instnace of the client, assigning the required
+# credentials for connecting to the broker. With flespi,
+# the password can be empty and the token is entered in
+# the username field.
+client = MQTTClient("DeviceID-LoPy4", "mqtt.flespi.io",user="<YourFlespiToken>",password="",port=1883)
+
+# Register the callback function
+client.set_callback(sub_cb)
+
+# connect to the broker
+client.connect()
+
+# subcribe to the topic we want to listen for new messages
+client.subscribe(topic="lopy4/test")
+
+while True:
+    print("Sending message to the broker")
+    # Publish a message to the broker and all clients listening on this topic
+    client.publish(topic="lopy4/test", msg="Hi from lopy4")
+    # sleep for 1 ms
+    time.sleep(1)
+    # Check for new messages, if there are any the callback function will be executed.
+    client.check_msg()
+
+    # sleep again for a milisecond
+    time.sleep(10)
+```
+
+Видео на резултата:
+
 
 ## Интегриране с услуги предоставени от трети страни
 
