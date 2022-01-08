@@ -188,7 +188,7 @@ for net in nets:
 
 Резултата наблюдаван в `Pymakr Console` във `VSCode`:
 
-_Snimka lopy-scan-and-connect-to-network_
+![lopy-scan-and-connect-to-network](https://user-images.githubusercontent.com/47386361/148642807-7c33d6cf-94c8-4fe0-a501-6e4e0eafa303.png)
 
 Импортваме нужните библиотеки
 ```python
@@ -233,8 +233,7 @@ for net in nets:
 
 Понеже използвам вторична мрежа за у-вата, ще мога да видя устройство в интерфейса на рутера свързано към `Wireless interface - wlan2`.
 
-_snimka ot WinBox na u-voto svurzano kym mrejata_
-
+![snimka-ot-WinBox-na-ustroistvoto-svurzano-kym-mrejata](https://user-images.githubusercontent.com/47386361/148642817-ce43a035-9f76-4e0e-b550-ebaaf598c61b.png)
 
 ### Задаване на статичен IP адрес
 Ако искате да достъпвате у-вото чрез някакъв отдалечен достъп различен от pyBytes, ще е по-лесно да има статично ИП.
@@ -266,10 +265,12 @@ if not wlan.isconnected():
 ```
 
 Резултата наблюдаван в `Pymakr Console` във `VSCode`:
-_Snimka upload-static-up-result_
+
+![upload-static-up-result](https://user-images.githubusercontent.com/47386361/148642828-dc091feb-0a09-498b-b0e9-ec34f1e59d58.png)
 
 Ping резултат:
-_Snimka PING_RESULT-upload-static-up-result_
+
+![PING_RESULT-upload-static-up-result](https://user-images.githubusercontent.com/47386361/148642833-774abf37-a222-491c-ac0f-6701d540c56e.png)
 
 ## Свързване към MQTT
 
