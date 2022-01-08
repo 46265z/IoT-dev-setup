@@ -344,7 +344,9 @@ while True:
 
 Видео на резултата:
 
-https://user-images.githubusercontent.com/47386361/148644229-dc6f1e57-f83b-4bf8-90c8-7812dd4278bc.mp4
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148644229-dc6f1e57-f83b-4bf8-90c8-7812dd4278bc.mp4">
+</iframe>
 
 ## Интегриране с услуги предоставени от трети страни
 
