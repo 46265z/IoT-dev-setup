@@ -155,6 +155,126 @@ _Snimka lopy-vscode-upload-cpde_
 От сега нататък можем да променяме конфигурацията на у-вото, да качваме нов код както и да обновяваме фирмуера изцяло Over-The-Air.
 
 
+## Безжична свързаност
+
+В почти всеки случай кода за свързване към мрежата трябва да бъде в `boot.py`.
+
+
+### Access point mode
+
+### Station mode
+
+### Сканиране и свъзване към мрежа
+В `boot.py`:
+
+```python
+from network import WLAN
+import machine
+wlan = WLAN(mode=WLAN.STA)
+
+nets = wlan.scan()
+for net in nets:
+    if net.ssid == '<Your-Wifi-SSID>': # <Your-Wifi-SSID> е името на вашата мрежа
+        print('[INFO]\tNetwork found!')
+        wlan.connect(net.ssid, auth=(net.sec, '<yourWifiKey>'), timeout=5000) # <yourWifiKey> Трябва да бъде паролата за вашата мрежа
+        while not wlan.isconnected():
+            machine.idle() # save power while waiting
+        print('[INFO]\tWLAN connection succeeded!')
+        break
+    else:
+        print('[WARNING]\tThe network you are searching for could not be found.')
+		break
+```
+
+Резултата наблюдаван в `Pymakr Console` във `VSCode`:
+
+_Snimka lopy-scan-and-connect-to-network_
+
+Импортваме нужните библиотеки
+```python
+from network import WLAN
+import machine
+```
+
+Инстанциираме класа `WLAN` в режим на клиент
+```python
+wlan = WLAN(mode=WLAN.STA)
+```
+
+Сканираме наличните мрежи и запазваме резултата от сканирането в `list`
+```python
+nets = wlan.scan()
+```
+
+За всяка от намерените мрежи извършваме проверка търсейки мрежа със `SSID` което ни интересува.
+Ако мрежата е налична принтим информационно съобщение за това и инициализираме свързване към нея.
+
+```python
+for net in nets:
+    if net.ssid == '<Your-Wifi-SSID>': # <Your-Wifi-SSID> е името на вашата мрежа
+        print('[INFO]\tNetwork found!')
+        wlan.connect(net.ssid, auth=(net.sec, '<yourWifiKey>'), timeout=5000) # <yourWifiKey> Трябва да бъде паролата за вашата мрежа
+```
+
+Проверяваме състоянието, като докато НЕ е свързвано задаваме състояние на процесора `idle` за да пестим енергия. При успешно свързване принтим `[INFO]` съобщение и излизаме от проверката.
+```python
+        while not wlan.isconnected():
+            machine.idle() # save power while waiting
+        print('[INFO]\tWLAN connection succeeded!')
+        break
+```
+
+Ако мрежата не е открита се отразява в терминала чрез съобщение от тип `[WARNING]`.
+```python
+    else:
+        print('[WARNING]\tThe network you are searching for could not be found.')
+		break
+```
+
+Понеже използвам вторична мрежа за у-вата, ще мога да видя устройство в интерфейса на рутера свързано към `Wireless interface - wlan2`.
+
+_snimka ot WinBox na u-voto svurzano kym mrejata_
+
+
+### Задаване на статичен IP адрес
+Ако искате да достъпвате у-вото чрез някакъв отдалечен достъп различен от pyBytes, ще е по-лесно да има статично ИП.
+
+!!! type danger "Обърнете внимание как проверяваме причината за рестартиране и състоянието на връзката - това е от решаващо значение, за да можем да рестартираме LoPy програмно по време на Telnet сесия, без да прекъсваме връзката."
+
+В `boot.py`:
+```python
+import machine
+import time
+from network import WLAN
+
+wlan = WLAN() # get current object, without changing the mode
+if machine.reset_cause() != machine.SOFT_RESET:
+    wlan.init(mode=WLAN.STA)
+    # configuration below MUST match your home router settings!!
+    wlan.ifconfig(config=('192.168.88.250', '255.255.255.0', '192.168.88.1', '192.168.88.1')) # (ip, subnet_mask, gateway, DNS_server)
+
+if not wlan.isconnected():
+    # change the line below to match your network ssid, security and password
+    wlan.connect('IoT-dev-env', auth=(WLAN.WPA2, '12345678'), timeout=5000)
+    print("[INFO]\tconnecting",end='')
+    while not wlan.isconnected():
+        time.sleep(1)
+        print(".",end='')
+    print()
+    print("[INFO]\tconnected")
+
+```
+
+Резултата наблюдаван в `Pymakr Console` във `VSCode`:
+_Snimka upload-static-up-result_
+
+Ping резултат:
+_Snimka PING_RESULT-upload-static-up-result_
+
+## Свързване към MQTT
+
+Сваляме сорс кода на MQTT клиента от [тук](https://github.com/pycom/pycom-libraries/blob/master/lib/mqtt/mqtt.py). Запазваме го в директория `lib` на проекта.
+
 
 ## Интегриране с услуги предоставени от трети страни
 
