@@ -448,6 +448,162 @@ while True:
   src="https://user-images.githubusercontent.com/47386361/148676811-8f9f1f17-218b-493d-9e79-0caa5dcceece.mp4">
 </iframe>
 
+## Приемане на данни в Python скрипта
+
+Ще напишем Python скрипт който ще слуша на посочените теми и ще обработва получените данни.
+Ще използваме имплементацията [gmqtt](https://github.com/wialon/gmqtt). Предимството е, че е асинхронна по природа което олеснява работата.
+
+Създаваме виртуална Python среда и инсталираме gmqtt с pip. Аз работя с python версия 3.8.9, не би трябвало да има проблем с по-нови версии.
+
+В MS Win 10 powershell:
+
+Създаване на python virtual environment:
+
+`python -m venv .venv`
+
+Активиране на средата:
+
+`.\.venv\Scripts\Activate.ps1`
+
+Инсталиране на нужните библиотеки:
+
+`python -m pip install gmqtt asyncio`
+
+
+Код:
+```python
+import asyncio
+import os
+import signal
+import time
+
+from gmqtt import Client as MQTTClient
+
+# gmqtt also compatibility with uvloop  
+# import uvloop
+# asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+
+STOP = asyncio.Event()
+
+
+def on_connect(client, flags, rc, properties):
+    print('Connected')
+    client.subscribe('lopy4/test', qos=0)
+
+
+def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+
+
+def on_disconnect(client, packet, exc=None):
+    print('Disconnected')
+
+def on_subscribe(client, mid, qos, properties):
+    print('SUBSCRIBED')
+
+def ask_exit(*args):
+    STOP.set()
+
+async def main(broker_host, port, token):
+    client = MQTTClient("client-id")
+
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    client.on_subscribe = on_subscribe
+
+    client.set_auth_credentials(token, None)
+    await client.connect(broker_host)
+
+    client.publish('TEST/TIME', str(time.time()), qos=0)
+
+    await STOP.wait()
+    await client.disconnect()
+
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+
+    broker_host = 'mqtt.flespi.io'
+    port = 1883
+    token = "<YourFlespiToken>"
+    try:
+        loop.run_until_complete(main(broker_host, port, token))
+    except KeyboardInterrupt:
+        print("Received exit, exiting")
+```
+
+Обеснение:
+
+Импортваме нужните библиотеки:
+```python
+import asyncio
+import os
+import signal
+import time
+
+from gmqtt import Client as MQTTClient
+```
+
+Дефинираме event handler за да можем да спрем всички изпълнявани задачи и да излезем правилно:
+```python
+STOP = asyncio.Event()
+```
+
+Дефинираме функции за четирите основни момента - on_connect, on_disconnect, on_subscribe, on_message:
+
+Функцията се изпълнява в момента в който клиента ни е свързван към брокера. Тук е мястото да се абонираме към темата на която слушаме за данни:
+```python
+def on_connect(client, flags, rc, properties):
+    print('Connected')
+    client.subscribe('lopy4/test', qos=0)
+```
+
+Изпълнява се всеки път когато съобщение е получено. Ако не сме абонирани към правилната тема никога няма да се изпълни:
+
+```python
+def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+```
+
+Изпълнява се в момента в който клиенти ни изгуби връзка с брокера. Тук може да се имплементира логика за last_will функционалност и т.н.:
+```python
+def on_disconnect(client, packet, exc=None):
+    print('Disconnected')
+```
+
+изпълнява се в момента в който се абонираме към тема. За момента приложението е основно за дебъг и прегледност:
+```python
+def on_subscribe(client, mid, qos, properties):
+    print('SUBSCRIBED')
+```
+
+Дефинираме функция чрез която да кажем на loop-a да "убие" всички процеси. Изпълнява се при `Ctrl+C`:
+```python
+def ask_exit(*args):
+    STOP.set()
+```
+
+Основната функция на скрипта. Тук създаваме инстанция на своя MQTT клиент. Регистрираме функциите. Задаваме параметрите нужни за автентификация към брокера. Изпълняваме функциите за спиране на скрипта асинхронно, тоест без да блокират изпълнението на останалата част от кода.
+```python
+async def main(broker_host, port, token):
+    client = MQTTClient("client-id")
+
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    client.on_subscribe = on_subscribe
+
+    client.set_auth_credentials(token, None)
+    await client.connect(broker_host)
+
+    client.publish('TEST/TIME', str(time.time()), qos=0)
+
+    await STOP.wait()
+    await client.disconnect()
+```
+
 ## Интегриране с услуги предоставени от трети страни
 
  <!--
