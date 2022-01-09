@@ -442,7 +442,11 @@ while True:
 
 ```
 
+Резултатът наблюдаван и в двете платформи:
 
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148676811-8f9f1f17-218b-493d-9e79-0caa5dcceece.mp4">
+</iframe>
 
 ## Интегриране с услуги предоставени от трети страни
 
