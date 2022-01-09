@@ -208,7 +208,6 @@ nets = wlan.scan()
 
 За всяка от намерените мрежи извършваме проверка търсейки мрежа със `SSID` което ни интересува.
 Ако мрежата е налична принтим информационно съобщение за това и инициализираме свързване към нея.
-
 ```python
 for net in nets:
     if net.ssid == '<Your-Wifi-SSID>': # <Your-Wifi-SSID> е името на вашата мрежа
@@ -272,7 +271,52 @@ Ping резултат:
 
 ![PING_RESULT-upload-static-up-result](https://user-images.githubusercontent.com/47386361/148642833-774abf37-a222-491c-ac0f-6701d540c56e.png)
 
+## Изпращане на данни към PyBytes
+!!! type info "Устройстовто трябва да бъде активирано в платформата."
+!!! type info "Трябва да дефинирате канала на който очаквате данни, тоест отидете в уеб интерфейса и отворете у-вото, в секция Signals -> дефинирайте."
+Тъй като за това отново се използва MQTT логиката е същата, но методите в кода са различни.
+
+В този пример ще изпращаме данни към PyBytes на всеки 5 секунди, тъй като все още използваме Expansion board-a, ще изпращаме синтетични данни.
+В следващи примери когато използваме някоя от сензорните разширителни платки ще изпратим реални данни.
+
+
+`boot.py`:
+Свързваме се към мрежата.
+
+В `main.py`:
+```python
+# Import what is necessary to create a thread
+import time
+import math
+
+# Send data continuously to Pybytes
+while True:
+    for i in range(0,20):
+        pybytes.send_signal(1, math.sin(i/10*math.pi))
+        print('sent signal {}'.format(i))
+        time.sleep(10)
+```
+
+Импортваме нужните библиотеки, Ще използваме няколко метода от `math` за да синтезираме данни.
+```python
+import time
+import math
+```
+
+Продължително изпращаме данни към PyBytes на канал 1, съдържанието се пресмята всеки път.
+```python
+# Send data continuously to Pybytes
+while True:
+    for i in range(0,20):
+		# Това е реда който изпраща данните към платформата	
+        pybytes.send_signal(1, math.sin(i/10*math.pi))
+        print('sent signal {}'.format(i))
+        time.sleep(10)
+```
+
 ## Свързване към MQTT
+
+!!! type info "При този пример у-вото НЕ е активирано в платформата на PyBytes, тоест при флашване с Pycom Firmware update tool опцията Force pybytes activation и SmartConfig НЕ са отметнати"
 
 Сваляме сорс кода на MQTT клиента от [тук](https://github.com/pycom/pycom-libraries/blob/master/lib/mqtt/mqtt.py). Запазваме го в директория `lib` на проекта.
 
@@ -298,7 +342,7 @@ for net in nets:
 		break
 ```
 
-В `main.py` ще пишем кода който отговаря за свързването към брокера и изпращане и получване на съобщения:
+В `main.py` ще пишем кода който отговаря за свързването към брокера и изпращане и получване на съобщения. Коментари в кода:
 
 ```python
 from mqtt import MQTTClient # this will be found in /lib directory
@@ -347,6 +391,14 @@ while True:
 <iframe width="600" height="315"
   src="https://user-images.githubusercontent.com/47386361/148644229-dc6f1e57-f83b-4bf8-90c8-7812dd4278bc.mp4">
 </iframe>
+
+## PyBytes + third party MQTT Broker
+!!! type info "За да бъдем свързани към PyBytes и да можем да изпращаме данни към платформата, у-вото трябва да е активирано по съответния начин"
+
+Тъй като Pybytes също използва MQTT, ако искаме да използваме отделна MQTT връзка докато същевременно сме във връзка с Pybytes, ще трябва да преименуваме класа MQTTCLient във файла mqtt.py, на (например) клас MQTTClient_lib, и да импортнем, като използваме новото име на класа (_from X import Z as Y_), за да избегнем конфликт на имената на класовете.
+
+
+
 
 ## Интегриране с услуги предоставени от трети страни
 
