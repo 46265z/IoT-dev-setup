@@ -403,6 +403,44 @@ while True:
 
 Тъй като Pybytes също използва MQTT, ако искаме да използваме отделна MQTT връзка докато същевременно сме във връзка с Pybytes, ще трябва да преименуваме класа MQTTCLient във файла mqtt.py, на (например) клас MQTTClient_lib, и да импортнем, като използваме новото име на класа (_from X import Z as Y_), за да избегнем конфликт на имената на класовете.
 
+`boot.py`:
+Свързваме се към мрежата.
+
+В `main.py`:
+```python
+from mqtt import MQTTClient_lib as MQTTClient # this will be found in /lib directory
+import math
+import time
+
+# Create an instnace of the client, assigning the required
+# credentials for connecting to the broker. With flespi,
+# the password can be empty and the token is entered in
+# the username field.
+client = MQTTClient("DeviceID-LoPy4", "mqtt.flespi.io",user="CDSLWZcgZTSg3jIjvbSZGCtXcNNDwJVYcByZoA3cjLgaTPheO01ksi5sWJTigD5j",password="",port=1883)
+
+# connect to the broker
+client.connect()
+
+while True:
+    for i in range(0,20):
+        print("Generating synthetic data")
+        synth_data = math.sin(i/10*math.pi)
+
+        print("Sending message to MQTT broker")
+
+        # Publish a message to the broker and all clients listening on this topic
+        client.publish(topic="lopy4/test", msg=str(synth_data))
+
+        # Seng signal to PyBytes on channel 1 with the same data
+        pybytes.send_signal(1, synth_data)
+
+        # sleep for 1 ms
+        time.sleep(1)
+
+        # sleep for 10 miliseconds before iterating again
+        time.sleep(10)
+
+```
 
 
 
