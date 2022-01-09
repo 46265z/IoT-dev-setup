@@ -416,7 +416,7 @@ import time
 # credentials for connecting to the broker. With flespi,
 # the password can be empty and the token is entered in
 # the username field.
-client = MQTTClient("DeviceID-LoPy4", "mqtt.flespi.io",user="CDSLWZcgZTSg3jIjvbSZGCtXcNNDwJVYcByZoA3cjLgaTPheO01ksi5sWJTigD5j",password="",port=1883)
+client = MQTTClient("DeviceID-LoPy4", "mqtt.flespi.io",user="<YourFlespiToken>",password="",port=1883)
 
 # connect to the broker
 client.connect()
