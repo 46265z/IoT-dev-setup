@@ -314,6 +314,12 @@ while True:
         time.sleep(10)
 ```
 
+Резултат:
+
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148675867-a5665c5b-57ab-4841-b71e-44748cbe0d5f.mp4">
+</iframe>
+
 ## Свързване към MQTT
 
 !!! type info "При този пример у-вото НЕ е активирано в платформата на PyBytes, тоест при флашване с Pycom Firmware update tool опцията Force pybytes activation и SmartConfig НЕ са отметнати"
