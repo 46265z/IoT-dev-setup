@@ -272,7 +272,58 @@ Ping резултат:
 
 ![PING_RESULT-upload-static-up-result](https://user-images.githubusercontent.com/47386361/148642833-774abf37-a222-491c-ac0f-6701d540c56e.png)
 
+## Изпращане на данни към PyBytes
+!!! type info "Устройстовто трябва да бъде активирано в платформата."
+!!! type info "Трябва да дефинирате канала на който очаквате данни, тоест отидете в уеб интерфейса и отворете у-вото, в секция Signals -> дефинирайте."
+Тъй като за това отново се използва MQTT логиката е същата, но методите в кода са различни.
+
+В този пример ще изпращаме данни към PyBytes на всеки 5 секунди, тъй като все още използваме Expansion board-a, ще изпращаме синтетични данни.
+В следващи примери когато използваме някоя от сензорните разширителни платки ще изпратим реални данни.
+
+
+`boot.py`:
+Свързваме се към мрежата.
+
+В `main.py`:
+```python
+# Import what is necessary to create a thread
+import time
+import math
+
+# Send data continuously to Pybytes
+while True:
+    for i in range(0,20):
+        pybytes.send_signal(1, math.sin(i/10*math.pi))
+        print('sent signal {}'.format(i))
+        time.sleep(10)
+```
+
+Импортваме нужните библиотеки, Ще използваме няколко метода от `math` за да синтезираме данни.
+```python
+import time
+import math
+```
+
+Продължително изпращаме данни към PyBytes на канал 1, съдържанието се пресмята всеки път.
+```python
+# Send data continuously to Pybytes
+while True:
+    for i in range(0,20):
+		# Това е реда който изпраща данните към платформата	
+        pybytes.send_signal(1, math.sin(i/10*math.pi))
+        print('sent signal {}'.format(i))
+        time.sleep(10)
+```
+
+Резултат:
+
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148675867-a5665c5b-57ab-4841-b71e-44748cbe0d5f.mp4">
+</iframe>
+
 ## Свързване към MQTT
+
+!!! type info "При този пример у-вото НЕ е активирано в платформата на PyBytes, тоест при флашване с Pycom Firmware update tool опцията Force pybytes activation и SmartConfig НЕ са отметнати"
 
 Сваляме сорс кода на MQTT клиента от [тук](https://github.com/pycom/pycom-libraries/blob/master/lib/mqtt/mqtt.py). Запазваме го в директория `lib` на проекта.
 
@@ -298,7 +349,8 @@ for net in nets:
 		break
 ```
 
-В `main.py` ще пишем кода който отговаря за свързването към брокера и изпращане и получване на съобщения:
+В `main.py` ще пишем кода който отговаря за свързването към брокера и изпращане и получване на съобщения. Коментари в кода:
+
 
 ```python
 from mqtt import MQTTClient # this will be found in /lib directory
@@ -347,6 +399,212 @@ while True:
 <iframe width="600" height="315"
   src="https://user-images.githubusercontent.com/47386361/148644229-dc6f1e57-f83b-4bf8-90c8-7812dd4278bc.mp4">
 </iframe>
+
+## PyBytes + third party MQTT Broker
+!!! type info "За да бъдем свързани към PyBytes и да можем да изпращаме данни към платформата, у-вото трябва да е активирано по съответния начин"
+
+Тъй като Pybytes също използва MQTT, ако искаме да използваме отделна MQTT връзка докато същевременно сме във връзка с Pybytes, ще трябва да преименуваме класа MQTTCLient във файла mqtt.py, на (например) клас MQTTClient_lib, и да импортнем, като използваме новото име на класа (_from X import Z as Y_), за да избегнем конфликт на имената на класовете.
+
+`boot.py`:
+Свързваме се към мрежата.
+
+В `main.py`:
+```python
+from mqtt import MQTTClient_lib as MQTTClient # this will be found in /lib directory
+import math
+import time
+
+# Create an instnace of the client, assigning the required
+# credentials for connecting to the broker. With flespi,
+# the password can be empty and the token is entered in
+# the username field.
+client = MQTTClient("DeviceID-LoPy4", "mqtt.flespi.io",user="<YourFlespiToken>",password="",port=1883)
+
+# connect to the broker
+client.connect()
+
+while True:
+    for i in range(0,20):
+        print("Generating synthetic data")
+        synth_data = math.sin(i/10*math.pi)
+
+        print("Sending message to MQTT broker")
+
+        # Publish a message to the broker and all clients listening on this topic
+        client.publish(topic="lopy4/test", msg=str(synth_data))
+
+        # Seng signal to PyBytes on channel 1 with the same data
+        pybytes.send_signal(1, synth_data)
+
+        # sleep for 1 ms
+        time.sleep(1)
+
+        # sleep for 10 miliseconds before iterating again
+        time.sleep(10)
+
+```
+
+Резултатът наблюдаван и в двете платформи:
+
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148676811-8f9f1f17-218b-493d-9e79-0caa5dcceece.mp4">
+</iframe>
+
+## Приемане на данни в Python скрипта
+
+Ще напишем Python скрипт който ще слуша на посочените теми и ще обработва получените данни.
+Ще използваме имплементацията [gmqtt](https://github.com/wialon/gmqtt). Предимството е, че е асинхронна по природа което олеснява работата.
+
+Създаваме виртуална Python среда и инсталираме gmqtt с pip. Аз работя с python версия 3.8.9, не би трябвало да има проблем с по-нови версии.
+
+В MS Win 10 powershell:
+
+Създаване на python virtual environment:
+
+`python -m venv .venv`
+
+Активиране на средата:
+
+`.\.venv\Scripts\Activate.ps1`
+
+Инсталиране на нужните библиотеки:
+
+`python -m pip install gmqtt asyncio`
+
+
+Код:
+```python
+import asyncio
+import os
+import signal
+import time
+
+from gmqtt import Client as MQTTClient
+
+# gmqtt also compatibility with uvloop  
+# import uvloop
+# asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+
+STOP = asyncio.Event()
+
+
+def on_connect(client, flags, rc, properties):
+    print('Connected')
+    client.subscribe('lopy4/test', qos=0)
+
+
+def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+
+
+def on_disconnect(client, packet, exc=None):
+    print('Disconnected')
+
+def on_subscribe(client, mid, qos, properties):
+    print('SUBSCRIBED')
+
+def ask_exit(*args):
+    STOP.set()
+
+async def main(broker_host, port, token):
+    client = MQTTClient("client-id")
+
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    client.on_subscribe = on_subscribe
+
+    client.set_auth_credentials(token, None)
+    await client.connect(broker_host)
+
+    client.publish('TEST/TIME', str(time.time()), qos=0)
+
+    await STOP.wait()
+    await client.disconnect()
+
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+
+    broker_host = 'mqtt.flespi.io'
+    port = 1883
+    token = "<YourFlespiToken>"
+    try:
+        loop.run_until_complete(main(broker_host, port, token))
+    except KeyboardInterrupt:
+        print("Received exit, exiting")
+```
+
+Обеснение:
+
+Импортваме нужните библиотеки:
+```python
+import asyncio
+import os
+import signal
+import time
+
+from gmqtt import Client as MQTTClient
+```
+
+Дефинираме event handler за да можем да спрем всички изпълнявани задачи и да излезем правилно:
+```python
+STOP = asyncio.Event()
+```
+
+Дефинираме функции за четирите основни момента - on_connect, on_disconnect, on_subscribe, on_message:
+
+Функцията се изпълнява в момента в който клиента ни е свързван към брокера. Тук е мястото да се абонираме към темата на която слушаме за данни:
+```python
+def on_connect(client, flags, rc, properties):
+    print('Connected')
+    client.subscribe('lopy4/test', qos=0)
+```
+
+Изпълнява се всеки път когато съобщение е получено. Ако не сме абонирани към правилната тема никога няма да се изпълни:
+
+```python
+def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+```
+
+Изпълнява се в момента в който клиенти ни изгуби връзка с брокера. Тук може да се имплементира логика за last_will функционалност и т.н.:
+```python
+def on_disconnect(client, packet, exc=None):
+    print('Disconnected')
+```
+
+изпълнява се в момента в който се абонираме към тема. За момента приложението е основно за дебъг и прегледност:
+```python
+def on_subscribe(client, mid, qos, properties):
+    print('SUBSCRIBED')
+```
+
+Дефинираме функция чрез която да кажем на loop-a да "убие" всички процеси. Изпълнява се при `Ctrl+C`:
+```python
+def ask_exit(*args):
+    STOP.set()
+```
+
+Основната функция на скрипта. Тук създаваме инстанция на своя MQTT клиент. Регистрираме функциите. Задаваме параметрите нужни за автентификация към брокера. Изпълняваме функциите за спиране на скрипта асинхронно, тоест без да блокират изпълнението на останалата част от кода.
+```python
+async def main(broker_host, port, token):
+    client = MQTTClient("client-id")
+
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    client.on_subscribe = on_subscribe
+
+    client.set_auth_credentials(token, None)
+    await client.connect(broker_host)
+
+    client.publish('TEST/TIME', str(time.time()), qos=0)
+
+    await STOP.wait()
+    await client.disconnect()
+```
 
 ## Интегриране с услуги предоставени от трети страни
 
