@@ -70,8 +70,12 @@ while True:
 
 Наблюдение на работата от 3 страни: терминал, PyBytes и flespi. Следващото видео наблюдава случай в който НЕ сме осигурили достатъчно време между действията. Обърнете внимание на данните във всеки прозорец в един момент - не са еднакви, дори се разминават с няколко съобщения.
 
-_Video bottleneck_
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148767149-9d6d4338-6669-4601-a740-a34cec6069cb.mp4">
+</iframe>
 
 Видео на правилна операция на у-вото:
 
-_Video without bottleneck_
+<iframe width="600" height="315"
+  src="https://user-images.githubusercontent.com/47386361/148767398-0831e94d-ae92-4b60-8640-4c11c6901399.mp4">
+</iframe>
