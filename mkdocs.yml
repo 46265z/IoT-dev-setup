@@ -154,12 +154,12 @@ nav:
     - Integrate webhook: integrate-webhook.md
     - Test the hook(Mock webhook service/backend/endpoint): test-pybytes-webhook.md
   - Devices:
-    - Expansion board: devices/expansion-board.md
+    - LoPy4: devices/lopy4.md
+#    - WiPy 3: devices/wipy3.md
+#    - Expansion board: devices/expansion-board.md
     - Pyscan: devices/pyscan.md
     - Pysense2x: devices/pysense2x.md
     - Pytrack2x: devices/pytrack2x.md
-    - WiPy 3: devices/wipy3.md
-    - LoPy4: devices/lopy4.md
     - Higrow wroom32: devices/higrow-wroom32.md
     - UNO WIFI: devices/uno-wifi.md
     - SIM800A: devices/SIM800A.md
