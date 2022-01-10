@@ -672,7 +672,7 @@ async def on_message(client, topic, payload, qos, properties):
     }
 ```
 
-_Snimka predi sled conv str_
+![mongo-records-beforeAfter-string-conv](https://user-images.githubusercontent.com/47386361/148731765-14559381-2fe0-47f4-83ba-0bf9b351d72d.png)
 
 За да запазим в БД използваме курсора към колекцията в баазата данни, тоест `collection` и по-точно `collection.insert_one()`.
 ```python
