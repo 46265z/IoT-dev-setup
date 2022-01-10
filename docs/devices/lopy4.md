@@ -606,6 +606,162 @@ async def main(broker_host, port, token):
     await client.disconnect()
 ```
 
+Данни за MQTT брокера.
+Пускаме `loop`-а.
+Когато натиснем `Ctrl+C` ще се изпълни `except KeyboardInterrupt` блока и съответно функцията `ask_exit()`
+```python
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+
+    broker_host = 'mqtt.flespi.io'
+    port = 1883
+    token = "<YourFlespiToken>"
+    try:
+        loop.run_until_complete(main(broker_host, port, token))
+    except KeyboardInterrupt:
+        print("Received exit, exiting")
+```
+
+### Препращане на данни към БД
+Работим върху кода от предишния пример.
+
+#### MongoDB Cloud
+В същата виртуална среда на Python която използвхаме в предишната точка трябва да инсталираме изискванията за работа с MongoDB.
+
+`python -m pip install dnspython pymongo` 
+
+В скрипта импортваме `pymongo` и `datetime` за да добавим timestamp към записа:
+```python
+...
+import pymongo
+import datetime
+```
+
+Запазваме в променливи данните за автентификация към БД.
+```python
+if __name__ == '__main__':
+	DBUSER = "<YourDBUsername>"
+	DBPWD = "<YourDBUserPassword>"
+```
+
+
+Инстанциираме обект от класа `MongoClient`, като подаваме `connection string`-а форматирам с парола и потребител.
+```python
+	# To create instance of the mongo client we need a connection string.
+	# Then we pass the connection string formatted with our user credentials as below:
+    db_client = pymongo.MongoClient(f'mongodb+srv://{DBUSER}:{DBPWD}@clusterdubnika16.ijloo.mongodb.net/iotDemo?retryWrites=true&w=majority')
+	db = db_client.iotDemo	# cursor to our DB
+    collection = db.pycomPython # cursor to the collection
+	...
+```
+
+Логиката за препращане на данни ще имплементираме във функцията `on_message`. Обърнете внимание, че вече е дефинирана с ключовата дума `async`.
+В `recvTime` запазваме дата и час от момента на получване на съобщението.
+```python
+async def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+    recvTime = datetime.datetime.now()
+```
+
+Създаваме променлива от тип `dict` в която ще запазим `timestamp` и получения `payload` от MQTT съобщението. Тъй като данни получени от MQTT винаги са `binary` трябва да ги преобразуваме преди да ги запазим. Аз ще ги запазя като стринг.
+```python
+    str_payload = str(payload)
+    data = {
+        "recvTime": recvTime,
+        "payload":str_payload
+    }
+```
+
+![mongo-records-beforeAfter-string-conv](https://user-images.githubusercontent.com/47386361/148731765-14559381-2fe0-47f4-83ba-0bf9b351d72d.png)
+
+За да запазим в БД използваме курсора към колекцията в баазата данни, тоест `collection` и по-точно `collection.insert_one()`.
+```python
+	collection.insert_one(data)
+```
+
+Крайния код е това:
+```python
+import asyncio
+import os
+import signal
+import time
+from gmqtt import Client as MQTTClient
+import pymongo
+import datetime
+
+# gmqtt also compatibility with uvloop  
+# import uvloop
+# asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+
+STOP = asyncio.Event()
+
+
+def on_connect(client, flags, rc, properties):
+    print('Connected')
+    client.subscribe('lopy4/test', qos=0)
+
+
+# def on_message(client, topic, payload, qos, properties):
+
+#     print('RECV MSG:', payload)
+
+async def on_message(client, topic, payload, qos, properties):
+    print('RECV MSG:', payload)
+    recvTime = datetime.datetime.now()
+    str_payload = str(payload)
+    data = {
+        "recvTime": recvTime,
+        "payload":str_payload
+    }
+    collection.insert_one(data)
+
+def on_disconnect(client, packet, exc=None):
+    print('Disconnected')
+
+def on_subscribe(client, mid, qos, properties):
+    print('SUBSCRIBED')
+
+def ask_exit(*args):
+    STOP.set()
+
+async def main(broker_host, port, token):
+    
+    client = MQTTClient("client-id")
+
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.on_disconnect = on_disconnect
+    client.on_subscribe = on_subscribe
+
+    client.set_auth_credentials(token, None)
+    await client.connect(broker_host)
+
+    client.publish('TEST/TIME', str(time.time()), qos=0)
+
+    await STOP.wait()
+    await client.disconnect()
+
+
+if __name__ == '__main__':
+    DBUSER = "<YourDBUsername>"
+    DBPWD = "<YourDBUserPassword>"
+    # To create instance of the mongo client we need a connection string.
+    # Then we pass the connection string formatted with our user credentials as below:
+    db_client = pymongo.MongoClient(f'mongodb+srv://{DBUSER}:{DBPWD}@clusterdubnika16.ijloo.mongodb.net/iotDemo?retryWrites=true&w=majority')
+    db = db_client.iotDemo	# cursor to our DB
+    collection = db.pycomPython # cursor to the collection
+    
+    loop = asyncio.get_event_loop()
+    broker_host = 'mqtt.flespi.io'
+    port = 1883
+    token = "<YourFlespiToken>"
+    try:
+        loop.run_until_complete(main(broker_host, port, token))
+    except KeyboardInterrupt:
+        print("Received exit, exiting")
+```
+
 ## Интегриране с услуги предоставени от трети страни
 
  <!--
