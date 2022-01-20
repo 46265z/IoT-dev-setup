@@ -47,14 +47,29 @@ Three-axis linear accelerometer. https://www.st.com/en/mems-and-sensors/lis2hh12
 
 #### Roll mode
 
-**<p style="text-align: center;"> <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Roll-Mode-Output.gif" style="zoom: 100%;" /> </p>** **<p style="text-align: center;"></p>**
+<p style="text-align: center;"><img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Roll-Mode-Output.gif" style="zoom: 100%;" /></p>
+_<p style="text-align: center;">Фигура 1 Accelerometer Working in Roll Mode</p>_
 
 #### Pitch mode
-
-**<p style="text-align: center;"> <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Pitch-Mode-Output.gif" style="zoom: 100%;" /> </p>** **<p style="text-align: center;">**
+<p style="text-align: center;"><img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/MPU6050-Accel-Gyro-Working-Pitch-Mode-Output.gif" style="zoom: 100%;" /></p>
+_<p style="text-align: center;">Фигура 2 Accelerometer Working in Pitch Mode</p>_
 
 #### Acceleration measurement
 
+
+### Light Sensor
+Двоен светлинен сензор който измерва нивото на осветеност.
+https://www.mouser.com/datasheet/2/239/Lite-On_LTR-329ALS-01%20DS_ver1.1-348647.pdf
+
+### Pressure Sensor
+https://www.nxp.com/docs/en/data-sheet/MPL3115A2.pdf
+
+### Temperature / Humidity Sensor
+https://www.silabs.com/documents/public/data-sheets/Si7006-A20.pdf
+
+
+---
+Referencing web image: Photographer/Creator Last name, Initial(s). (Year) Title of image/photograph. Available at: URL (Accessed Day Month Year).
 
 http://web.uni-plovdiv.bg/marudova/Mechanics/tvardo_tyalo.pdf
 
