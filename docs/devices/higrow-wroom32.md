@@ -46,7 +46,17 @@ otvarq REPL.
 ```
 
 ## Arduino IDE
-
+<div id="code-element"></div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+      axios({
+      method: 'get',
+      url: 'https://raw.githubusercontent.com/iotify/nsim-examples/master/functional-testing/alarm-server.js'
+       })
+      .then(function (response) {
+         document.getElementById("code-element").innerHTML = response.data;
+      });
+</script>
 ``` title=".browserslistrc"
 --8<--​ "https://raw.githubusercontent.com/46265z/IoT-dev-setup/master/devices/higrow-wroom32/ino-workspace/DHT_ESP32/DHT_ESP32.ino"
 ```
