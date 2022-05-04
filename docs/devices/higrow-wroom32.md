@@ -47,6 +47,10 @@ otvarq REPL.
 
 ## Arduino IDE
 
+``` title=".browserslistrc"
+--8<--​ "https://raw.githubusercontent.com/46265z/IoT-dev-setup/master/devices/higrow-wroom32/ino-workspace/DHT_ESP32/DHT_ESP32.ino"
+```
+
 download and install [Arduino IDE](https://www.arduino.cc/en/software) 
 
 v programata otvarqme File -> Preferences _(Ctrl+Comma)_ 
