@@ -46,7 +46,9 @@ otvarq REPL.
 ```
 
 ## Arduino IDE
+```c++
 <div id="code-element"></div>
+```
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
       axios({
